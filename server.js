@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 dotenv.config();
 const key = fs.readFileSync('./certs/cert.key');
 const cert = fs.readFileSync('./certs/cert.crt');
-const server = https.createServer({key, cert}, app);
+const server = https.createServer(app); //{key, cert},
 const io = scoketio(server, {
   cors: {
     origin: 'https://react-video-chat-app-puce.vercel.app/',
